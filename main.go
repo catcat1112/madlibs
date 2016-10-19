@@ -8,62 +8,55 @@ import (
 
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
-	fmt.Print("Give me an %s ->", "adjective")
+
+	fmt.Printf("Give me an %s ->", "adjective")
 	scanner.Scan()
 	firstAdjective := scanner.Text()
 	fmt.Println(firstAdjective)
-	fmt.Print()
-	scanner := bufio.NewScanner(os.Stdin)
-	if err != nil {
-		fmt.Println("An error with the noun has occured.")
-	}
+
+	fmt.Printf("Give me an %s ->", "noun")
+	scanner.Scan()
+	firstNoun := scanner.Text()
 	fmt.Println(firstNoun)
-	fmt.Print("Give me a name, please.")
-	firstName, err := reader.ReadString('\n')
-	if err != nil {
-		fmt.Println("An error with the name has occured.")
-	}
+
+	fmt.Printf("Give me an %s ->", "name")
+	scanner.Scan()
+	firstName := scanner.Text()
 	fmt.Println(firstName)
-	fmt.Print("Give me a verb, please.")
-	firstVerb, err := reader.ReadString('\n')
-	if err != nil {
-		fmt.Println("An error with the verb has occured.")
-	}
+
+	fmt.Printf("Give me an %s ->", "verb")
+	scanner.Scan()
+	firstVerb := scanner.Text()
 	fmt.Println(firstVerb)
-	fmt.Print("Give me the past tense of the previous verb, please.")
-	pastTenseVerb, err := reader.ReadString('\n')
-	if err != nil {
-		fmt.Println("An error with the past tense of the previous verb has occured.")
-	}
+
+	fmt.Printf("Give me the %s ->", "past tense of previous verb")
+	scanner.Scan()
+	pastTenseVerb := scanner.Text()
 	fmt.Println(pastTenseVerb)
-	fmt.Print("Give me a second noun, please.")
-	secondNoun, err := reader.ReadString('\n')
-	if err != nil {
-		fmt.Println("An error with the second noun has occured.")
-	}
+
+	fmt.Printf("Give me an %s ->", "noun")
+	scanner.Scan()
+	secondNoun := scanner.Text()
 	fmt.Println(secondNoun)
-	fmt.Print("Give me a body part, please.")
-	bodyPart, err := reader.ReadString('\n')
-	if err != nil {
-		fmt.Println("An error with the body part has occured.")
-	}
-	fmt.Print(bodyPart)
-	fmt.Print("Give me a second past tense verb, please.")
-	secondVerb, err := reader.ReadString('\n')
-	if err != nil {
-		fmt.Println("An error with the second verb has occured.")
-	}
-	fmt.Print(secondVerb)
-	fmt.Printf("Once upon a time, there was a very %s %s named %s.\n %s really liked to %s. %s %s all day long.\n' She %s so much that she leveled up and became a 1337 %s.\n Then, her %s fell off from so much use, and she %s.\n", firstAdjective, firstNoun, firstName, firstName, firstVerb, firstName, pastTenseVerb, pastTenseVerb, secondNoun, bodyPart, secondVerb)
+
+	fmt.Printf("Give me an %s ->", "body part")
+	scanner.Scan()
+	bodyPart := scanner.Text()
+	fmt.Println(bodyPart)
+
+	fmt.Printf("Give me a %s ->", "past tense verb")
+	scanner.Scan()
+	pastTenseVerb2 := scanner.Text()
+	fmt.Println(pastTenseVerb2)
+
+	/*
+	   Once upon a time, there was a very {{adjective}} {{noun}}
+	    named {{name}}.
+	   {{Previous name}} really liked to {{verb}}.
+	   {{Previous name}} {{past tense verb}} all day long.
+	   She {{past tense verb}} so much that she leveled up and became a 1337 {{noun}}.
+	   Then, her {{body part}} fell off from so much {{noun}}, and she {{verb}}.
+
+	   The End.
+	*/
 }
-
-/*
-Once upon a time, there was a very {{adjective}} {{noun}}
- named {{name}}.
-{{Previous name}} really liked to {{verb}}.
-{{Previous name}} {{past tense verb}} all day long.
-She {{past tense verb}} so much that she leveled up and became a 1337 {{noun}}.
-Then, her {{body part}} fell off from so much {{noun}}, and she {{verb}}.
-
-The End.
-*/
