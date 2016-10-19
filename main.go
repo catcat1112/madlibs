@@ -7,15 +7,13 @@ import (
 )
 
 func main() {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Give me an adjective, please. ")
-	firstAdjective, err := reader.ReadString('\n')
-	if err != nil {
-		fmt.Println("An error with the adjective has occured.")
-	}
+	scanner := bufio.NewScanner(os.Stdin)
+	fmt.Print("Give me an %s ->", "adjective")
+	scanner.Scan()
+	firstAdjective := scanner.Text()
 	fmt.Println(firstAdjective)
-	fmt.Print("Give me a noun, please. ")
-	firstNoun, err := reader.ReadString('\n')
+	fmt.Print()
+	scanner := bufio.NewScanner(os.Stdin)
 	if err != nil {
 		fmt.Println("An error with the noun has occured.")
 	}
